@@ -4,6 +4,7 @@ import matplotlib.patches as mpatches
 
 
 #%% plot of temp
+plt.subplot(211)
 mounths = [1,2,3,4,5,6,7,8,9,10,11,12]
 high_temp = [30,31,31,31,31,31,31,31,31,31,30,29] # average high
 low_temp = [23,24,24,24,25,24,24,24,24,24,24,23] # average low
@@ -14,7 +15,7 @@ plt.title('Temperature in Singapore', color='#34495e')
 high_legend = mpatches.Patch(color='magenta', label='High')
 low_legend = mpatches.Patch(color='cyan', label='Low')
 plt.legend(handles=[high_legend,low_legend])
-plt.show()
+#plt.show()
 #%% build a scatter plot
 N = 50
 x = np.random.rand(N)
@@ -22,13 +23,13 @@ y = np.random.rand(N)
 colors = np.random.rand(N)
 area = np.pi * (15 * np.random.rand(N))**2  # 0 to 15 point radii
 plt.scatter(x, y, s=area, c=colors, alpha=0.5)
-plt.show()
+#plt.show()
 
 
 #%% plot versus x as line
 X = np.linspace(-np.pi, np.pi, 256, endpoint=True)
 C, S = np.cos(X), np.sin(X)
-
+plt.subplot(212)
 plt.plot(X, C, color="blue", linewidth=2.5, linestyle="-")
 plt.plot(X, S, color="red", linewidth=2.5, linestyle="-")
 
