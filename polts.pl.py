@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-#https://scriptverse.academy/tutorials/python-matplotlib-plot.html
+
 
 #%% plot of temp
 mounths = [1,2,3,4,5,6,7,8,9,10,11,12]
