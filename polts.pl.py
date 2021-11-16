@@ -4,19 +4,37 @@ import matplotlib.patches as mpatches
 
 
 #%% plot of temp
-plt.subplot(211)
+
 mounths = [1,2,3,4,5,6,7,8,9,10,11,12]
 high_temp = [30,31,31,31,31,31,31,31,31,31,30,29] # average high
 low_temp = [23,24,24,24,25,24,24,24,24,24,24,23] # average low
-plt.plot(mounths,high_temp, 'm-.', mounths, low_temp, 'c:')
-plt.xlabel('Months', color='#1e8bc3')
-plt.ylabel('Temperature (°C)', color='#e74c3c')
-plt.title('Temperature in Singapore', color='#34495e')
-high_legend = mpatches.Patch(color='magenta', label='High')
-low_legend = mpatches.Patch(color='cyan', label='Low')
-plt.legend(handles=[high_legend,low_legend])
+
+
+def line_plot(x,y,z, x_lab, y_lab, x_col='#1e8bc3',  y_col='#e74c3c'):
+    fig, ax = plt.plot(x, y, 'm-.', x, z, 'c:')
+    plt.xlabel(x_lab, x_col)
+    plt.ylabel( y_lab, y_col)
+    plt.title('Temperature in Singapore', color='#34495e')
+    high_legend = mpatches.Patch(color='magenta', label='High')
+    low_legend = mpatches.Patch(color='cyan', label='Low')
+    plt.legend(handles=[high_legend, low_legend])
+    return (fig)
+
+fig = line_plot(mounths,high_temp,low_temp, 'Months', 'Temperature (°C)', x_col='#1e8bc3',  y_col='#e74c3c')
+
+##
+#plt.plot(mounths,high_temp, 'm-.', mounths, low_temp, 'c:')
+#plt.xlabel('Months', color='#1e8bc3')
+#plt.ylabel('Temperature (°C)', color='#e74c3c')
+#plt.title('Temperature in Singapore', color='#34495e')
+#high_legend = mpatches.Patch(color='magenta', label='High')
+#low_legend = mpatches.Patch(color='cyan', label='Low')
+#plt.legend(handles=[high_legend,low_legend])
 #plt.show()
+
+
 #%% build a scatter plot
+plt.subplot(222)
 N = 50
 x = np.random.rand(N)
 y = np.random.rand(N)
@@ -29,7 +47,7 @@ plt.scatter(x, y, s=area, c=colors, alpha=0.5)
 #%% plot versus x as line
 X = np.linspace(-np.pi, np.pi, 256, endpoint=True)
 C, S = np.cos(X), np.sin(X)
-plt.subplot(212)
+plt.subplot(223)
 plt.plot(X, C, color="blue", linewidth=2.5, linestyle="-")
 plt.plot(X, S, color="red", linewidth=2.5, linestyle="-")
 
